@@ -12,7 +12,7 @@ from src.exception import CustomException
 from src.logger import logging
 from src.components.data_transformation import DataTransformation
 from src.components.model_trainer import ModelTrainer
-
+from src.components.model_trainer import ModelTrainerConfig
 
 @dataclass
 class DataIngestionConfig:
@@ -56,7 +56,6 @@ class DataIngestion:
 
 
 if __name__ == "__main__":
-    try:
         # 1️⃣ Data ingestion
         obj = DataIngestion()
         train_data, test_data = obj.initiate_data_ingestion()
@@ -69,5 +68,3 @@ if __name__ == "__main__":
         model_trainer = ModelTrainer()
         print(model_trainer.initiate_model_trainer(train_arr, test_arr))
 
-    except Exception as e:
-        print(f"Error running pipeline: {e}")
